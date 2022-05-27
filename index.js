@@ -1,17 +1,17 @@
-const exemple = 'eu vou para a escola'
-let vowel = ['a', 'e', 'i', 'o', 'u']
+"use strict";
 
-let howManyVowels = 0
+const exemple = 'eu vou para a escolaa';
 
-function vowelCounter (){
-  for (let i = 0; i < exemple.length; i++){
-      for (let v = 0; v < vowel.length; v++){
-        if (exemple[i]===vowel[v]) {
-            howManyVowels ++
-        }
-      }
-  }
-  return howManyVowels
+String.prototype.countVowel = function () {
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  const vowelStr = [...this];
+
+  let count = Number(+0);
+  vowelStr.forEach((letter) => {
+    vowels.includes(letter) ? +count++ : false; 
+  });
+
+  return +count;
 }
 
-console.log(`A frase "${exemple}" tem ${vowelCounter()} vogais`);
+console.log(`A frase "${exemple}" tem ${exemple.countVowel()} vogais`);
